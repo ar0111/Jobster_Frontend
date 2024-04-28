@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Landing from "../Pages/Landing";
 import Dashboard from "../Pages/Dashboard";
 import Register from "../Pages/Register";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'*',
-                element:<Dashboard></Dashboard>
+                element:<Error></Error>
             }
         ]
     }
