@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from '../Components/Logo';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
+
+    const {createUser} = useContext(AuthContext);
+
     return (
         <div className='min-h-screen flex justify-center items-center'>
             <div className='shadow-2xl w-3/4 md:w-1/4 border-t-4 border-indigo-600 rounded'>
