@@ -1,10 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Landing from "../Pages/Landing";
-import Dashboard from "../Pages/Dashboard";
 import Register from "../Pages/Register";
 import Error from "../Pages/Error";
 import Login from "../Pages/Login";
+import { SharedLayout } from "../Pages/Dashboard";
+import { Stats } from "../Pages/Dashboard";
+import { AllJobs } from "../Pages/Dashboard";
+import { AddJob } from "../Pages/Dashboard";
+import { Profile } from "../Pages/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +32,29 @@ const router = createBrowserRouter([
                 element:<Error></Error>
             }
         ]
+    },
+    {
+        path:'/dashboard',
+        element:<SharedLayout></SharedLayout>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<Stats></Stats>
+            },
+            {
+                path:'all-jobs',
+                element:<AllJobs></AllJobs>
+            },
+            {
+                path:'add-jobs',
+                element:<AddJob></AddJob>
+            },
+            {
+                path:'profile',
+                element:<Profile></Profile>
+            }
+        ]
+        
     }
 ])
 
