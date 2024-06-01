@@ -2,8 +2,8 @@ import React from 'react';
 
 const BigSidebar = () => {
     return (
-        <div>
-            <h1>BigSidebar</h1>
+        <div className='hidden lg:block bg-slate-200 min-h-screen'>
+            <h1 className='text-3xl font-semibold'>BigSidebar</h1>
         </div>
     );
 };

@@ -6,13 +6,13 @@ import { Outlet } from 'react-router-dom';
 
 const SharedLayout = () => {
     return (
-        <div>
-            <div>
+        <div className='min-h-screen'>
+            <div className='flex justify-content-start flex-col lg:flex-row'>
                 <SmallSidebar></SmallSidebar>
                 <BigSidebar></BigSidebar>
-                <div>
+                <div className='w-screen'>
                     <Navbar></Navbar>
-                    <div>
+                    <div className='bg-slate-200 min-h-screen'>
                         <Outlet></Outlet>
                     </div>
                 </div>
