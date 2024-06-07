@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Logo from '../Components/Logo';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -10,6 +10,10 @@ const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const {signIn} = useContext(AuthContext);
     const [loginError, setLogInError] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from.pathname || '/dashboard';
 
     const handleLogIn = (data)=>{
         console.log(data);
@@ -19,6 +23,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             toast.success('User Login Successfully');
+            navigate(from, {replace:true});
         })
         .catch(error=>{
             console.log(error);
