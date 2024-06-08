@@ -13,7 +13,7 @@ const Landing = () => {
                 <div>
                     <h1 className='text-4xl font-bold'>Job <span className='text-blue-600'>Tracking</span> App</h1>
                     <p className='my-4'>Organize your tasks, prioritize effectively, and meet every deadline with confidence.  Track time spent on different projects, collaborate seamlessly with your team, and gain valuable insights into your workflow.  Take control of your workday and achieve peak productivity with our easy-to-use and intuitive job tracking system.</p>
-                    <Link to='/register' className='btn btn-info text-lg text-white'>Login/Register</Link>
+                    <Link to='/login' className='btn btn-info text-lg text-white'>Login/Register</Link>
                 </div>
                 <img className='hidden md:block' src={main} alt="main-img" />
             </div>

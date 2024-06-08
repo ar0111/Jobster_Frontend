@@ -9,6 +9,7 @@ import { Stats } from "../Pages/Dashboard";
 import { AllJobs } from "../Pages/Dashboard";
 import { AddJob } from "../Pages/Dashboard";
 import { Profile } from "../Pages/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<SharedLayout></SharedLayout>,
+        element:<PrivateRoute><SharedLayout></SharedLayout></PrivateRoute>,
         children:[
             {
                 path:'/dashboard',

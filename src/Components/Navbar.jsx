@@ -1,19 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Logo from './Logo';
 import { FaAlignLeft } from "react-icons/fa";
 import { AuthContext } from '../Context/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa6";
 
-const Navbar = () => {
-
-    const {user, logout} = useContext(AuthContext);
-    console.log(user);
+const Navbar = ({sidebarToggle, setSidebarToggle}) => {
+    const [showLogout, setShowLogout] = useState(false);
+    const {user, logOut} = useContext(AuthContext);
+    // console.log(user);
+    const handleSignOut = ()=>{
+        logOut()
+        .then(()=>{})
+        .catch(err=>console.log(err))
+    }
 
     return (
         <div className='text-center my-8'>
             <div className='flex justify-between items-center px-10'>
-                <button type='button' className='toggle-btn' onClick={()=> console.log('toggle sidebar')}>
+                <button type='button' className='toggle-btn' onClick={()=> setSidebarToggle(!sidebarToggle)}>
                     <FaAlignLeft />
                 </button>
             
@@ -28,17 +33,20 @@ const Navbar = () => {
                     
                 </div>
 
-                <div>
-                    <button type='button' className='btn' onClick={()=>console.log('toggle logout dropdown')}>
+                <div  className='w-auto relative'>
+                    <button type='button' className='btn btn-info btn-sm text-white' onClick={()=> setShowLogout(!showLogout)}>
                         <FaUserCircle />
                         {user?.displayName}
                         <FaCaretDown />
                     </button>
-                    <div>
-                        <button type='button' className='btn' onClick={()=> console.log('logout user')}>
-                            Logout
-                        </button>
-                    </div>
+                    {
+                        showLogout && <div className="mt-2 absolute w-full">
+                            <button type='button' className='btn w-full bg-sky-100 text-blue-400 font-bold' onClick={handleSignOut}>
+                                Logout
+                            </button>
+                        </div>
+                    }
+                    
                 </div>
             </div>
         </div>
