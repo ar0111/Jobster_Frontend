@@ -10,7 +10,7 @@ const PrivateRoute = ({children}) => {
         return children;
     }
 
-    return <Navigate to='/' state={{from:location}}></Navigate>
+    return <Navigate to='/landing' state={{from:location}}></Navigate>
 };
 
 export default PrivateRoute;

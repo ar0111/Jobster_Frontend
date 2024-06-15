@@ -14,48 +14,41 @@ import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path:'/',
-        element:<Main></Main>,
+        element:<PrivateRoute><SharedLayout></SharedLayout></PrivateRoute>,
         children:[
             {
                 path:'/',
-                element:<Landing></Landing>
+                element:<Stats></Stats>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path:'/all-jobs',
+                element:<AllJobs></AllJobs>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path:'/add-job',
+                element:<AddJob></AddJob>
             },
             {
-                path:'*',
-                element:<Error></Error>
+                path:'/profile',
+                element:<Profile></Profile>
             }
         ]
     },
     {
-        path:'/dashboard',
-        element:<PrivateRoute><SharedLayout></SharedLayout></PrivateRoute>,
-        children:[
-            {
-                path:'/dashboard',
-                element:<Stats></Stats>
-            },
-            {
-                path:'all-jobs',
-                element:<AllJobs></AllJobs>
-            },
-            {
-                path:'add-jobs',
-                element:<AddJob></AddJob>
-            },
-            {
-                path:'profile',
-                element:<Profile></Profile>
-            }
-        ]
-        
+        path:'/landing',
+        element:<Landing></Landing>
+    },
+    {
+        path:'/register',
+        element:<Register></Register>
+    },
+    {
+        path:'/login',
+        element:<Login></Login>
+    },
+    {
+        path:'*',
+        element:<Error></Error>
     }
 ])
 

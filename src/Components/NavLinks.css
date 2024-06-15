@@ -1,0 +1,22 @@
+.nav-link{
+    display: flex;
+    justify-content: start;
+    gap:12px;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-left: 50px;
+    padding: 12px 0px 12px 0px;
+}
+
+.icon{
+    font-size: 22px;
+}
+
+.active{
+    font-weight: bold;
+}
+
+.active .icon{
+    color:rgb(0, 102, 255);
+}

@@ -1,10 +1,20 @@
 import React from 'react';
+import Logo from './Logo';
+import NavLinks from './NavLinks';
 
 const BigSidebar = ({sidebarToggle}) => {
     return (
-        <div className='hidden lg:block bg-slate-200 min-h-screen'>
-            <h1 className='text-3xl font-semibold'>BigSidebar</h1>
+        <div className='hidden lg:block'>
+            <div className={`${sidebarToggle ? "hidden" : "block"} bg-slate-200 h-full`}>
+                <div>
+                    <header>
+                        <Logo></Logo>
+                    </header>
+                    <NavLinks></NavLinks>
+                </div>
+            </div>
         </div>
+        
     );
 };
 

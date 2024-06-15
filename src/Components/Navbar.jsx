@@ -4,6 +4,7 @@ import { FaAlignLeft } from "react-icons/fa";
 import { AuthContext } from '../Context/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa6";
+import SmallSidebar from './SmallSidebar';
 
 const Navbar = ({sidebarToggle, setSidebarToggle}) => {
     const [showLogout, setShowLogout] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
     }
 
     return (
-        <div className='text-center my-8'>
+        <div className='text-center my-6'>
             <div className='flex justify-between items-center px-10'>
                 <button type='button' className='toggle-btn' onClick={()=> setSidebarToggle(!sidebarToggle)}>
                     <FaAlignLeft />
@@ -40,7 +41,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
                         <FaCaretDown />
                     </button>
                     {
-                        showLogout && <div className="mt-2 absolute w-full">
+                        showLogout && <div className="mt-2 w-full absolute">
                             <button type='button' className='btn w-full bg-sky-100 text-blue-400 font-bold' onClick={handleSignOut}>
                                 Logout
                             </button>
@@ -49,6 +50,9 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
                     
                 </div>
             </div>
+            <SmallSidebar sidebarToggle={sidebarToggle}
+                setSidebarToggle={setSidebarToggle}
+            ></SmallSidebar>
         </div>
     );
 };
