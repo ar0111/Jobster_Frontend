@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const {signIn} = useContext(AuthContext);
     const [loginError, setLogInError] = useState('');
     const location = useLocation();

@@ -9,7 +9,8 @@ const SharedLayout = () => {
 
     return (
         <div className='flex h-screen'>
-            <BigSidebar sidebarToggle={sidebarToggle}></BigSidebar>
+            <BigSidebar sidebarToggle={sidebarToggle}
+            ></BigSidebar>
             <div className='w-screen'>
                 <Navbar sidebarToggle={sidebarToggle}
                 setSidebarToggle={setSidebarToggle}

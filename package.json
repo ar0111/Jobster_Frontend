@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
-    "@tanstack/react-query": "^5.38.0",
+    "@tanstack/react-query": "^5.45.1",
     "firebase": "^10.11.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",

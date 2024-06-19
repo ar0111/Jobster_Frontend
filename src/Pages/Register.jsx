@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 const Register = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const {createUser, updateUser} = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
 

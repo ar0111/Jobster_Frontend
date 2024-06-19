@@ -5,6 +5,8 @@ import { AuthContext } from '../Context/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa6";
 import SmallSidebar from './SmallSidebar';
+import { useQuery } from '@tanstack/react-query';
+import Loading from './Loading';
 
 const Navbar = ({sidebarToggle, setSidebarToggle}) => {
     const [showLogout, setShowLogout] = useState(false);
@@ -15,6 +17,21 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
         .then(()=>{})
         .catch(err=>console.log(err))
     }
+
+    const {data: users = [], refetch, isLoading} = useQuery({
+        queryKey: ['users'],
+        queryFn: async()=>{
+            const res = await fetch(`http://localhost:3000/users/${user?.email}`);
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    // console.log(users);
+
+    if(isLoading) return <Loading></Loading>
+
+    refetch();
 
     return (
         <div className='text-center my-6'>
@@ -37,7 +54,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
                 <div  className='w-auto relative'>
                     <button type='button' className='btn btn-info btn-sm text-white' onClick={()=> setShowLogout(!showLogout)}>
                         <FaUserCircle />
-                        {user?.displayName}
+                        {users.name}
                         <FaCaretDown />
                     </button>
                     {
