@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const AddJob = () => {
 
     const [isEditing, setIsEditing] = useState(false);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {user} = useContext(AuthContext);
 
     const handleAddJob = (data)=>{
-        const job = data;
+        const position = data.position;
+        const company = data.company;
+        const jobLocation = data.joblocation;
+        const status = data.status;
+        const jobType = data.jobtype;
+        const userEmail = user.email;
+
+        const job = {
+            position,
+            company,
+            jobLocation,
+            status,
+            jobType,
+            userEmail
+        }
 
         fetch('http://localhost:3000/alljobs',{
             method:"POST",
