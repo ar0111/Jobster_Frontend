@@ -1,15 +1,38 @@
 .Interview{
-    background-color: rgba(144, 218, 240, 0.386);
+    background-color: #e0e8f9;
     padding: 3px 12px 3px 12px;
     border-radius: 4px;
-    color:rgba(0, 0, 255, 0.605);
+    color:#647acb;
+    text-align: center;
     
 }
 
-.status .Decline{
-    
+.Declined{
+    background-color: #ffeeee;
+    padding: 3px 12px 3px 12px;
+    border-radius: 4px;
+    color:#d66a6a;
+    text-align: center;
 }
 
-.status .Pending{
-    
+.Pending{
+    background-color: #fcefc7;
+    padding: 3px 12px 3px 12px;
+    border-radius: 4px;
+    color:#e9b949;
+    text-align: center;
+}
+
+.edit-btn{
+    background-color: rgba(5, 152, 103, 0.219);
+    padding: 1px 8px 1px 8px;
+    border-radius: 4px;
+    color: rgb(1, 107, 72);
+}
+
+.delete-btn{
+    background-color: rgba(248, 5, 5, 0.219);
+    padding: 1px 8px 1px 8px;
+    border-radius: 4px;
+    color: rgb(84, 4, 8);
 }
