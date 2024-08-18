@@ -4,7 +4,7 @@ import ChartsContainer from '../../Components/ChartsContainer';
 
 const Stats = () => {
     return (
-        <div>
+        <div className='container mx-auto pt-10'>
             <StatsContainer></StatsContainer>
             <ChartsContainer></ChartsContainer>
         </div>

@@ -1,0 +1,3 @@
+/* .border-color:{
+    color: ${(props)=>props.color};
+} */
