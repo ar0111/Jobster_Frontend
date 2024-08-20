@@ -1,3 +1,32 @@
-/* .border-color:{
-    color: ${(props)=>props.color};
-} */
+.border-color-0 {
+    border-color: #e9b949;
+}
+.border-color-1 {
+    border-color: #647acb;
+}
+.border-color-2 {
+    border-color: #d66a6a;
+}
+
+.text-0{
+    color:#e9b949;
+}
+.text-1{
+    color:#647acb;
+}
+.text-2{
+    color:#d66a6a;
+}
+
+.icon-0 {
+    background-color: #fcefc7;
+    color:#dfaa0b;
+}
+.icon-1 {
+    background-color: #e0e8f9;
+    color: #0e4cd1;
+}
+.icon-2 {
+    background-color: #ffeeee;
+    color: #eb0f0f;
+}
