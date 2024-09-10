@@ -9,7 +9,7 @@ const AddJobComponet = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const {user} = useContext(AuthContext);
 
-    let currentDate = moment().format('MMMM Do, YYYY');
+    let currentDate = moment().format('MMM Do, YYYY');
 
     const handleAddJob = (data)=>{
         const position = data.position;

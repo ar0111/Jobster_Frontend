@@ -4,7 +4,7 @@ import './StatItems.css';
 const StatItem = ({item, index}) => {
 
     const {count, title, icon, color, bcg} = item;
-     console.log(index);
+    //  console.log(index);
      
     
 
