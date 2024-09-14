@@ -31,7 +31,7 @@ const JobsContainer = () => {
     }
 
     return (
-        <div className='mt-6'>
+        <div className='mt-14'>
             <h1 className='text-3xl font-semibold'>Jobs Info</h1>
             <div className='grid grid-cols-2 gap-4 mt-4'>
                 {

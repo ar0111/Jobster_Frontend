@@ -37,7 +37,7 @@ const Profile = () => {
     }
 
     return (
-        <div className='overflow-hidden'>
+        <div className='overflow-hidden h-screen'>
             <div className='m-10 bg-white py-10 px-6 rounded shadow-xl'>
                 <h1 className='text-3xl font-semibold px-8'>Profile</h1>
 

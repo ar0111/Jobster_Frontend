@@ -15,7 +15,7 @@ const SharedLayout = () => {
                 <Navbar sidebarToggle={sidebarToggle}
                 setSidebarToggle={setSidebarToggle}
                 ></Navbar>
-                <div className='bg-slate-200 h-screen'>
+                <div className='bg-slate-200'>
                     <Outlet></Outlet>
                 </div>
             </div>
