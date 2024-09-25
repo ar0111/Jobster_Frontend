@@ -12,7 +12,7 @@ const AllJobs = () => {
     });
 
     return (
-        <div className='px-10 py-6 h-full'>
+        <div className='px-10 py-6 h-fit'>
             <SearchContainer filters={filters} setFilters={setFilters}></SearchContainer>
             <JobsContainer filters={filters}></JobsContainer>
         </div>

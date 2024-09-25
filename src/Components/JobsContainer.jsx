@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import Loading from './Loading';
 import Job from './Job';
+import PageBtnContainer from './PageBtnContainer';
 
 const JobsContainer = ({filters}) => {
     const {user} = useContext(AuthContext);
@@ -36,17 +37,24 @@ const JobsContainer = ({filters}) => {
         })
     }
 
-    // function sortDataA (data, property, direction) {
-    //     return data.sort((a, b) =>{
-    //         console.log(a[property].split('')[0], b[property].split('')[0]);
-            
-    //         if(direction === 'asc') {
-    //             return a[property].split('')[0].toLowerCase().localeCompare(b[property].split('')[0])
-    //         } else {
-    //             return b[property].split('')[0].toLowerCase().localeCompare(a[property].split('')[0])
-    //         }
-    //     })
-    // }
+    function cleanDateString(dateStr) {
+        // Remove 'th', 'st', 'nd', 'rd'
+        return dateStr.replace(/(\d+)(th|st|nd|rd)/, '$1');
+    }
+
+    function sortDataDate (data, property, direction) {
+        return data.sort((a, b) =>{
+            if(direction === 'asc') {
+                const dateA = new Date(cleanDateString(a.date));
+                const dateB = new Date(cleanDateString(b.date));
+                return dateA - dateB;
+            } else {
+                const dateA = new Date(cleanDateString(a.date));
+                const dateB = new Date(cleanDateString(b.date));
+                return dateB - dateA;
+            }
+        })
+    }
 
     let jobsData = jobs.filter((job)=>{
         return(
@@ -56,21 +64,33 @@ const JobsContainer = ({filters}) => {
         )
     })
 
-    if(filters.sort.toLowerCase() === 'latest') sortData(jobsData, "date", "desc");
-    else if(filters.sort.toLowerCase() === 'oldest') sortData(jobsData, "date", "asc");
+    if(filters.sort.toLowerCase() === 'latest') sortDataDate(jobsData, "date", "desc");
+    else if(filters.sort.toLowerCase() === 'oldest') sortDataDate(jobsData, "date", "asc");
     else if(filters.sort.toLowerCase() === 'a-z') sortData(jobsData, "position", "asc");
     else if(filters.sort.toLowerCase() === 'z-a') sortData(jobsData, "position", "desc");
 
+    const [currentPage, SetCurrentPage] = useState(1);
+    const recordsPerPage = 10;
+    const lastIndex = currentPage * recordsPerPage;
+    const firstIndex = lastIndex - recordsPerPage;
+    const records = jobsData.slice(firstIndex, lastIndex);
+    const nPage = Math.ceil(jobsData.length / recordsPerPage);
+    const numbers = [...Array(nPage + 1).keys()].slice(1);
+    // console.log(numbers);
+    
+
     return (
         <div className='mt-14'>
-            <h1 className='text-3xl font-semibold'>Jobs Info</h1>
+            <h1 className='text-2xl font-semibold'>{jobsData.length} Job{jobsData.length > 1 && 's'} Found</h1>
             <div className='grid grid-cols-2 gap-4 mt-4'>
                 {
-                    jobsData.map((job)=>{
+                    records.map((job)=>{
                         return <Job key={job._id} job={job} refetch={refetch}></Job>
                     })
                 }
             </div>
+
+            {nPage > 1 && <PageBtnContainer numbers = {numbers} lastIndex={lastIndex} firstIndex={firstIndex} currentPage={currentPage} SetCurrentPage={SetCurrentPage}></PageBtnContainer>}
         </div>
     );
 };

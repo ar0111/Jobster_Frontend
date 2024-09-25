@@ -11,6 +11,10 @@ const SearchContainer = ({filters, setFilters}) => {
             [name]: value,
         }))
     }    
+
+    const clearInput = ()=>{
+        reset();
+    }
     
     return (
         <div>
@@ -27,7 +31,7 @@ const SearchContainer = ({filters, setFilters}) => {
                                 </label>
                                 <input type="text" {...register("search", {
                                     onChange:handleFilterChange
-                                })} value={filters.search} className="input input-bordered bg-gray-100" required/>
+                                })} value={filters.search} className="input input-bordered bg-gray-100"/>
                                 {errors.search &&<p className='text-red-5000'>{errors.search.message}</p>}
                             </div>
 
@@ -68,7 +72,7 @@ const SearchContainer = ({filters, setFilters}) => {
                                 </label>
                                 <select className="w-full border rounded-lg bg-gray-100 p-2.5" {...register("sort", {
                                     onChange:handleFilterChange
-                                })} defaultValue={"Smartphones"} value={filters.sort}>
+                                })} defaultValue={"Latest"} value={filters.sort}>
                                     <option>Latest</option>
                                     <option>Oldest</option>
                                     <option>A-Z</option>
