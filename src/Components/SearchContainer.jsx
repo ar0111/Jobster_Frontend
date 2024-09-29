@@ -13,7 +13,10 @@ const SearchContainer = ({filters, setFilters}) => {
     }    
 
     const clearInput = ()=>{
-        reset();
+        setFilters.search('');
+        setFilters.status('all');
+        setFilters.type('all');
+        setFilters.sort('latest');
     }
     
     return (

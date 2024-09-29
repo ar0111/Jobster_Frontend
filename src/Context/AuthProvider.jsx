@@ -11,6 +11,7 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     const [jobId, setJobId] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
 
     const createUser = (email, password)=>{
         setLoading(true);
@@ -51,7 +52,9 @@ const AuthProvider = ({children}) => {
         isEditing,
         setIsEditing,
         jobId, 
-        setJobId
+        setJobId,
+        currentPage, 
+        setCurrentPage
     }
 
     return (

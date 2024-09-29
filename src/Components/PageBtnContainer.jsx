@@ -1,32 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import './PageBtnContainer.css';
+import { AuthContext } from '../Context/AuthProvider';
 
-const PageBtnContainer = ({numbers, firstIndex, lastIndex, currentPage, SetCurrentPage}) => {
-    // console.log(`current page ${currentPage}`);
-    
+const PageBtnContainer = ({numbers, nPage}) => {   
+    const {currentPage, setCurrentPage} = useContext(AuthContext); 
 
     const nextPage = ()=>{
-        if(currentPage !== lastIndex) {
-            SetCurrentPage(currentPage + 1);
-        }
-        // console.log(currentPage);
+        setCurrentPage(currentPage + 1);
+        console.log(currentPage);
         
     }
 
     const prevPage = ()=>{
-        if(currentPage !== firstIndex) {
-            SetCurrentPage(currentPage - 1);
-        }
+        setCurrentPage(currentPage - 1);
     }
 
     const changePage = (pageNumber)=>{
-        SetCurrentPage(pageNumber);
+        setCurrentPage(pageNumber);
     }
 
     return (
         <div className='flex justify-normal items-center mt-8'>
-            <button type="button" className='btn bg-white rounded text-sky-600' onClick={prevPage}>
+            <button type="button" className='btn bg-white rounded text-sky-600' onClick={prevPage} disabled={currentPage === 1}>
                 <HiChevronDoubleLeft></HiChevronDoubleLeft>
                 Prev
             </button>
@@ -35,7 +31,7 @@ const PageBtnContainer = ({numbers, firstIndex, lastIndex, currentPage, SetCurre
                     numbers.map((pageNumber) =>{
                         // console.log(pageNumber);
                         return (
-                            <button className={`w-14 h-12 text-sky-600 text-base font-bold ${currentPage === pageNumber ? 'active rounded' : ''}`} onClick={()=>changePage(pageNumber)}>
+                            <button className={`w-14 h-12 text-sky-600 text-base font-bold ${currentPage === pageNumber ? 'active1 rounded' : ''}`} onClick={()=>changePage(pageNumber)}>
                             {pageNumber}
                             </button>
                         )
@@ -43,7 +39,7 @@ const PageBtnContainer = ({numbers, firstIndex, lastIndex, currentPage, SetCurre
                 }
             </div>
             
-            <button type="button" className='btn bg-white rounded text-sky-600' onClick={nextPage}>
+            <button type="button" className='btn bg-white rounded text-sky-600' onClick={nextPage} disabled={currentPage === nPage}>
                 <HiChevronDoubleRight></HiChevronDoubleRight>
                 Next
             </button>

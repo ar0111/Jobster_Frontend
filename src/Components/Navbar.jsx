@@ -19,7 +19,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
     }
 
     const {data: users = [], refetch, isLoading} = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', user?.email],
         queryFn: async()=>{
             const res = await fetch(`http://localhost:3000/users/${user?.email}`);
             const data = await res.json();
@@ -37,7 +37,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
         <div className='text-center my-6'>
             <div className='flex justify-between items-center px-10'>
                 <button type='button' className='toggle-btn' onClick={()=> setSidebarToggle(!sidebarToggle)}>
-                    <FaAlignLeft />
+                    <FaAlignLeft size="24px" color="rgb(0, 102, 255)"/>
                 </button>
             
                 <div>
@@ -45,7 +45,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
                         <Logo></Logo>
                     </div>
                     <div className='hidden lg:block'>
-                        <h3>dashboard</h3>
+                        <h3 className='capitalize text-2xl font-semibold'>dashboard</h3>
                     </div>
                     
                     

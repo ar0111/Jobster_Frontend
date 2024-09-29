@@ -6,7 +6,7 @@ import Job from './Job';
 import PageBtnContainer from './PageBtnContainer';
 
 const JobsContainer = ({filters}) => {
-    const {user} = useContext(AuthContext);
+    const {user, currentPage, setCurrentPage} = useContext(AuthContext);
 
     const { data: jobs = [], refetch, isLoading } = useQuery({
         queryKey: ['alljobs', user?.email],
@@ -64,20 +64,29 @@ const JobsContainer = ({filters}) => {
         )
     })
 
-    if(filters.sort.toLowerCase() === 'latest') sortDataDate(jobsData, "date", "desc");
-    else if(filters.sort.toLowerCase() === 'oldest') sortDataDate(jobsData, "date", "asc");
-    else if(filters.sort.toLowerCase() === 'a-z') sortData(jobsData, "position", "asc");
-    else if(filters.sort.toLowerCase() === 'z-a') sortData(jobsData, "position", "desc");
+    switch(filters.sort.toLowerCase()){
+        case "latest":
+            sortDataDate(jobsData, "date", "desc");
+            break;
+        case "oldest":
+            sortDataDate(jobsData, "date", "asc");
+            break;
+        case "a-z":
+            sortData(jobsData, "position", "asc");
+            break;
+        case "z-a":
+            sortData(jobsData, "position", "desc");
+            break;
+    }
 
-    const [currentPage, SetCurrentPage] = useState(1);
     const recordsPerPage = 10;
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
     const records = jobsData.slice(firstIndex, lastIndex);
     const nPage = Math.ceil(jobsData.length / recordsPerPage);
     const numbers = [...Array(nPage + 1).keys()].slice(1);
-    // console.log(numbers);
     
+    if(records.length < (currentPage - 1) * recordsPerPage) setCurrentPage(1);
 
     return (
         <div className='mt-14'>
@@ -90,7 +99,7 @@ const JobsContainer = ({filters}) => {
                 }
             </div>
 
-            {nPage > 1 && <PageBtnContainer numbers = {numbers} lastIndex={lastIndex} firstIndex={firstIndex} currentPage={currentPage} SetCurrentPage={SetCurrentPage}></PageBtnContainer>}
+            {nPage > 1 && <PageBtnContainer numbers = {numbers} nPage={nPage}></PageBtnContainer>}
         </div>
     );
 };
