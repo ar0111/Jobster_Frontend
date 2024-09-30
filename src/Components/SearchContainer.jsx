@@ -27,7 +27,7 @@ const SearchContainer = ({filters, setFilters}) => {
 
                     <form className="card-body">
 
-                        <div className='grid grid-cols-3 gap-4'>
+                        <div className='flex flex-col md:grid md:grid-cols-3 md:gap-4'>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold text-base">Search</span>
@@ -68,12 +68,12 @@ const SearchContainer = ({filters, setFilters}) => {
                             </div>
                         </div>
 
-                        <div className='grid grid-cols-3 gap-4 items-end'>
+                        <div className='flex flex-col md:grid md:grid-cols-3 md:gap-4 md:items-end'>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-bold text-base">Sort</span>
                                 </label>
-                                <select className="w-full border rounded-lg bg-gray-100 p-2.5" {...register("sort", {
+                                <select className="w-full border rounded-lg bg-gray-100 p-2.5 mb-4 md:mb-0" {...register("sort", {
                                     onChange:handleFilterChange
                                 })} defaultValue={"Latest"} value={filters.sort}>
                                     <option>Latest</option>

@@ -52,7 +52,7 @@ const StatsContainer = () => {
     ]
 
     return (
-        <div className='grid grid-cols-3 mb-8 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-3 mb-8 gap-4'>
             {defaultStats.map((item, index)=>{
                 return <StatItem key={index} item={item} index={index}></StatItem>
             })}

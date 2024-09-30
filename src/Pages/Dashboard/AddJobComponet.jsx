@@ -59,7 +59,7 @@ const AddJobComponet = () => {
 
                 <form onSubmit={handleSubmit(handleAddJob)} className="card-body">
 
-                    <div className='grid grid-cols-3 gap-4'>
+                    <div className='flex flex-col md:grid md:grid-cols-3 md:gap-4'>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold text-base">Position</span>
@@ -85,7 +85,7 @@ const AddJobComponet = () => {
                         </div>
                     </div>
 
-                    <div className='grid grid-cols-3 gap-4 items-end'>
+                    <div className='flex flex-col md:grid md:grid-cols-3 md:gap-4 md:items-end'>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold text-base">Status</span>
@@ -101,7 +101,7 @@ const AddJobComponet = () => {
                             <label className="label">
                                 <span className="label-text font-bold text-base">Job Type</span>
                             </label>
-                            <select className="w-full border rounded-lg bg-gray-100 p-2.5" {...register("jobtype")} defaultValue={"Smartphones"}>
+                            <select className="w-full border rounded-lg bg-gray-100 p-2.5 mb-4 md:mb-4" {...register("jobtype")} defaultValue={"Smartphones"}>
                                 <option>Full-Time</option>
                                 <option>Part-Time</option>
                                 <option>Remote</option>

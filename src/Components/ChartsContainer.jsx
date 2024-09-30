@@ -39,25 +39,9 @@ const ChartsContainer = () => {
         }
         return new Date(`${aYear}-${aMonth}-01`) - new Date(`${bYear}-${bMonth}-01`); // Sort by month within the same year
     });
+
+    const resultSlice = result.slice(0, 6);
     
-    // console.log(result);
-
-    // let dateArr = {};
-
-    // {
-    //     jobs.map((item) => {
-    //         const dateData = item.date.split(" ");
-    //         console.log(dateData);
-    //         const dateItem = dateData[0] + " " + dateData[2];
-    //         // dateArr.push({date:dateItem})
-    //         // console.log(dateArr);
-            
-    //     })
-    // }
-
-    // console.log(jobs);
-    
-
     return (
         <div className='pt-10'>
             <div className='text-center'>
@@ -65,7 +49,7 @@ const ChartsContainer = () => {
                 <button className='mt-4 text-lg text-sky-600 font-semibold' onClick={()=>setBarChart(!barChart)}>{barChart ? 'Area Chart' : 'Bar Chart'}</button>
             </div>
             <div className='text-center'>
-                {barChart ? <BarChartContainer result={result}></BarChartContainer> : <AreaChartComponent result={result}></AreaChartComponent>}
+                {barChart ? <BarChartContainer resultSlice={resultSlice}></BarChartContainer> : <AreaChartComponent resultSlice={resultSlice}></AreaChartComponent>}
             </div>
         </div>
     );

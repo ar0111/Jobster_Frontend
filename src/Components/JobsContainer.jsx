@@ -91,7 +91,7 @@ const JobsContainer = ({filters}) => {
     return (
         <div className='mt-14'>
             <h1 className='text-2xl font-semibold'>{jobsData.length} Job{jobsData.length > 1 && 's'} Found</h1>
-            <div className='grid grid-cols-2 gap-4 mt-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                 {
                     records.map((job)=>{
                         return <Job key={job._id} job={job} refetch={refetch}></Job>

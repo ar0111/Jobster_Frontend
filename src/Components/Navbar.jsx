@@ -40,22 +40,25 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
                     <FaAlignLeft size="24px" color="rgb(0, 102, 255)"/>
                 </button>
             
-                <div>
+                <div className='mx-4 md:mx-0'>
                     <div className='block lg:hidden'>
                         <Logo></Logo>
                     </div>
                     <div className='hidden lg:block'>
                         <h3 className='capitalize text-2xl font-semibold'>dashboard</h3>
                     </div>
-                    
-                    
                 </div>
 
                 <div  className='w-auto relative'>
-                    <button type='button' className='btn btn-info btn-sm text-white' onClick={()=> setShowLogout(!showLogout)}>
-                        <FaUserCircle />
+                    <button type='button' className='btn btn-info btn-sm text-white text-xs' onClick={()=> setShowLogout(!showLogout)}>
+                        <div className='hidden md:block'>
+                            <FaUserCircle />
+                        </div>
                         {users.name}
-                        <FaCaretDown />
+                        <div className='hidden md:block'>
+                            <FaCaretDown/>
+                        </div>
+                        
                     </button>
                     {
                         showLogout && <div className="mt-2 w-full absolute">

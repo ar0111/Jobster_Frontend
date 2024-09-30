@@ -43,7 +43,7 @@ const Profile = () => {
 
                 <form onSubmit={handleSubmit(handleUpdateInfo)} className="card-body">
 
-                    <div className='grid grid-cols-3 gap-4'>
+                    <div className='flex flex-col md:grid md:grid-cols-3 md:gap-4'>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold text-base">First Name</span>
@@ -69,12 +69,12 @@ const Profile = () => {
                         </div>
                     </div>
 
-                    <div className='grid grid-cols-3 gap-4 items-end'>
+                    <div className='flex flex-col md:grid md:grid-cols-3 md:gap-4 md:items-end'>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold text-base">Location</span>
                             </label>
-                            <input type="text" {...register("location")} className="input input-bordered bg-gray-100" required defaultValue={"something"} />
+                            <input type="text" {...register("location")} className="input input-bordered bg-gray-100 mb-4 md:mb-0" required defaultValue={"something"} />
                             {errors.location &&<p className='text-red-5000'>{errors.location.message}</p>}
                         </div>
 

@@ -49,7 +49,7 @@ const Job = ({job, refetch}) => {
                 </div>
             </div>
             <div className='px-6 py-4'>
-                <div className='flex justify-start gap-80 items-center'>
+                <div className='grid grid-cols-2 gap-10 lg:gap-80 items-center'>
                     <div className='pb-4'>
                         <JobInfo icon={<FaLocationArrow style={{ color: 'rgb(148 163 184)'}}/>} text={jobLocation}></JobInfo>
                         <div className='pt-3'>
