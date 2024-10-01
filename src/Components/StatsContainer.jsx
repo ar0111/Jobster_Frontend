@@ -11,7 +11,7 @@ const StatsContainer = () => {
     const { data: jobs = [], refetch, isLoading } = useQuery({
         queryKey: ['alljobs', user?.email],
         queryFn: async()=>{
-            const res = await fetch(`http://localhost:3000/alljobs/${user?.email}`);
+            const res = await fetch(`https://jobster-server-indol.vercel.app/alljobs/${user?.email}`);
             const data = await res.json();
             return data;
         }

@@ -38,7 +38,7 @@ const Register = () => {
             email, 
             password
         }
-        fetch('http://localhost:3000/users',{
+        fetch('https://jobster-server-indol.vercel.app/users',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

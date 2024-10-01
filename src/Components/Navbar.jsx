@@ -21,7 +21,7 @@ const Navbar = ({sidebarToggle, setSidebarToggle}) => {
     const {data: users = [], refetch, isLoading} = useQuery({
         queryKey: ['users', user?.email],
         queryFn: async()=>{
-            const res = await fetch(`http://localhost:3000/users/${user?.email}`);
+            const res = await fetch(`https://jobster-server-indol.vercel.app/users/${user?.email}`);
             const data = await res.json();
             return data;
         }

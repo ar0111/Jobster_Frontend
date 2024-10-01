@@ -22,7 +22,7 @@ const Profile = () => {
 
         console.log(formData);
 
-        fetch(`http://localhost:3000/updateUser/${user?.email}`, {
+        fetch(`https://jobster-server-indol.vercel.app/updateUser/${user?.email}`, {
             method: 'PUT',
             body: formData
         })

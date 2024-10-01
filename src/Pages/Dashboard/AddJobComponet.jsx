@@ -30,7 +30,7 @@ const AddJobComponet = () => {
             date
         }
 
-        fetch('http://localhost:3000/alljobs',{
+        fetch('https://jobster-server-indol.vercel.app/alljobs',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

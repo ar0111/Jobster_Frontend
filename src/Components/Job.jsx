@@ -15,7 +15,7 @@ const Job = ({job, refetch}) => {
         const agree = window.confirm('Are you want to delete this job');
         if(agree){
             // console.log("Yes Agree");
-            fetch(`http://localhost:3000/deletejob/${_id}`, {
+            fetch(`https://jobster-server-indol.vercel.app/deletejob/${_id}`, {
                 method: "DELETE"
             })
             .then(res=>res.json())

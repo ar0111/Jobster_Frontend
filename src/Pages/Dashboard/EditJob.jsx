@@ -25,7 +25,7 @@ const EditJob = () => {
             jobType,
         }
 
-        fetch(`http://localhost:3000/updatejobs/${jobId._id}`,{
+        fetch(`https://jobster-server-indol.vercel.app/updatejobs/${jobId._id}`,{
             method:"PUT",
             headers:{
                 'content-type': 'application/json'
