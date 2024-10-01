@@ -101,7 +101,7 @@ const AddJobComponet = () => {
                             <label className="label">
                                 <span className="label-text font-bold text-base">Job Type</span>
                             </label>
-                            <select className="w-full border rounded-lg bg-gray-100 p-2.5 mb-4 md:mb-4" {...register("jobtype")} defaultValue={"Smartphones"}>
+                            <select className="w-full border rounded-lg bg-gray-100 p-2.5 mb-4 md:mb-0" {...register("jobtype")} defaultValue={"Smartphones"}>
                                 <option>Full-Time</option>
                                 <option>Part-Time</option>
                                 <option>Remote</option>
